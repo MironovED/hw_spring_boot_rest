@@ -1,11 +1,13 @@
 package ru.netology.spring_boot_rest.controller;
 
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.netology.spring_boot_rest.enums.Authorities;
 import ru.netology.spring_boot_rest.exceptions.InvalidCredentials;
 import ru.netology.spring_boot_rest.exceptions.UnauthorizedUser;
+import ru.netology.spring_boot_rest.pojo.User;
 import ru.netology.spring_boot_rest.service.AuthorizationService;
 
 import java.util.List;
@@ -19,10 +21,8 @@ public class AuthorizationController {
     }
 
     @GetMapping("/authorize")
-    public List<Authorities> getAuthorities(@RequestParam("user") String user,
-                                            @RequestParam("password") String password
-    ) {
-        return service.getAuthorities(user, password);
+    public List<Authorities> getAuthorities(@Valid User user) {
+        return service.getAuthorities(user);
     }
 
     @ExceptionHandler

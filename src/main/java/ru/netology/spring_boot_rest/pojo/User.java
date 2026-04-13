@@ -9,15 +9,20 @@ import java.util.List;
 @Setter
 @Getter
 public class User {
-    private String login;
+    private String user;
     private String password;
     private List<Authorities> permission;
 
     public User() {}
 
-    public User(String login, String password, List<Authorities> permission) {
-        this.login = login;
+    public User(String user, String password, List<Authorities> permission) {
+        this.user = user;
         this.password = password;
         this.permission = permission;
+    }
+
+    public User(String user, String password) {
+        this.user = user;
+        this.password = password;
     }
 }

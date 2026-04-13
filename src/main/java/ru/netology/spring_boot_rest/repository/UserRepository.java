@@ -21,7 +21,7 @@ public class UserRepository {
 
     public List<Authorities> getUserAuthorities(String user, String password) {
         Optional<User> obj = users.stream()
-                .filter((o) -> o.getLogin().equals(user) && o.getPassword().equals(password))
+                .filter((o) -> o.getUser().equals(user) && o.getPassword().equals(password))
                 .findFirst();
         return obj.map(User::getPermission).orElse(null);
     }
