@@ -8,24 +8,11 @@
 		<version>4.0.5</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
+
 	<groupId>ru.netology</groupId>
 	<artifactId>spring-boot-rest</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name/>
-	<description/>
-	<url/>
-	<licenses>
-		<license/>
-	</licenses>
-	<developers>
-		<developer/>
-	</developers>
-	<scm>
-		<connection/>
-		<developerConnection/>
-		<tag/>
-		<url/>
-	</scm>
+	<packaging>jar</packaging>
 	<properties>
 		<java.version>17</java.version>
 	</properties>
