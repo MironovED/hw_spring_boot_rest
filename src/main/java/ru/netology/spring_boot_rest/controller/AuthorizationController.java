@@ -1,6 +1,7 @@
 package ru.netology.spring_boot_rest.controller;
 
 import jakarta.validation.Valid;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -13,6 +14,7 @@ import ru.netology.spring_boot_rest.service.AuthorizationService;
 
 import java.util.List;
 
+@Slf4j
 @RestController
 public class AuthorizationController {
     AuthorizationService service;
@@ -23,6 +25,7 @@ public class AuthorizationController {
 
     @GetMapping("/authorize")
     public List<Authorities> getAuthorities(@Valid User user) {
+        log.info("Отправили ответ клиенту по пути /authorize");
         return service.getAuthorities(user);
     }
 
