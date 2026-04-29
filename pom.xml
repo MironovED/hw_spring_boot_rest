@@ -21,7 +21,7 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>
-			<version>4.1.0-M3</version>
+			<version>3.5.13</version>
 			<scope>compile</scope>
 		</dependency>
 		<dependency>
