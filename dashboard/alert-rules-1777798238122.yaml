@@ -1,0 +1,63 @@
+apiVersion: 1
+groups:
+    - orgId: 1
+      name: example
+      folder: example alert
+      interval: 1m
+      rules:
+        - uid: dfkmv6cqwi1hce
+          title: request error limit
+          condition: C
+          data:
+            - refId: A
+              relativeTimeRange:
+                from: 600
+                to: 0
+              datasourceUid: ffkmoi6m7kdfke
+              model:
+                editorMode: builder
+                expr: http_server_requests_seconds_count{status="400"}
+                instant: true
+                intervalMs: 1000
+                legendFormat: __auto
+                maxDataPoints: 43200
+                range: false
+                refId: A
+            - refId: C
+              queryType: expression
+              datasourceUid: __expr__
+              model:
+                conditions:
+                    - evaluator:
+                        params:
+                            - 10
+                        type: gt
+                      operator:
+                        type: and
+                      query:
+                        params:
+                            - C
+                      reducer:
+                        params: []
+                        type: last
+                      type: query
+                datasource:
+                    type: __expr__
+                    uid: __expr__
+                expression: A
+                intervalMs: 1000
+                maxDataPoints: 43200
+                refId: C
+                type: threshold
+          dashboardUid: adj88gs
+          panelId: 3
+          noDataState: NoData
+          execErrState: Error
+          for: 1m
+          annotations:
+            __dashboardUid__: adj88gs
+            __panelId__: "3"
+            summary: Превышено количество запросов в статусе 400
+          isPaused: false
+          notification_settings:
+            receiver: my
